@@ -25,6 +25,14 @@ namespace WebApplication1.Controllers
 
                 return Ok(new { status = 200, isSuccess = true, message = "User Login successfully", UserDetails = log });
         }
+
+        [Route("Getpatient")]
+        [HttpGet]
+        public object Getpatient()
+        {
+            return DB.patients.ToList();
+        }
+
         [Route("InsertPatient")]
         [HttpPost]
         public object InsertPatient(PatientRegister Reg)

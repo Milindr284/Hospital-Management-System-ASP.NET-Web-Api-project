@@ -109,6 +109,8 @@ namespace WebApplication1.Controllers
 
         }
 
+       
+
         [Route("api/InPatient/InPatientByInPatientId")]
         [HttpPost]
         public InpatientResponse InPatientByInPatientId(InpatientModel inpatientModel)

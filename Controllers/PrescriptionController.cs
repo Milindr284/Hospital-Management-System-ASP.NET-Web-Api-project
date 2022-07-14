@@ -105,6 +105,13 @@ namespace WebApplication1.Controllers
 
         }
 
+        [Route("api/Prescription/GetPrescriptions")]
+        [HttpGet]
+        public object GetPrescriptions()
+        {
+            return db.Prescriptions.ToList();
+        }
+
         [Route("api/Prescription/PrescriptionByInPrescriptionId")]
         [HttpPost]
         public PrescriptionResponse PrescriptionByInPrescriptionId(PrescriptionModel prescriptionModel)

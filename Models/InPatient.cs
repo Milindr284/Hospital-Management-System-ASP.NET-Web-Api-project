@@ -14,6 +14,12 @@ namespace WebApplication1.Models
     
     public partial class InPatient
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public InPatient()
+        {
+            this.Dischargesums = new HashSet<Dischargesum>();
+        }
+    
         public int InPatientId { get; set; }
         public string PatientName { get; set; }
         public string PhoneNum { get; set; }
@@ -30,5 +36,7 @@ namespace WebApplication1.Models
         public Nullable<int> NurseId { get; set; }
     
         public virtual managenurse managenurse { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dischargesum> Dischargesums { get; set; }
     }
 }

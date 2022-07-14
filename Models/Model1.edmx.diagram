@@ -18,6 +18,9 @@
         <EntityTypeShape EntityType="EmployeesModel.Prescription" Width="1.5" PointX="10.625" PointY="1.125" />
         <AssociationConnector Association="EmployeesModel.FK__Prescript__Docto__2DE6D218" />
         <AssociationConnector Association="EmployeesModel.FK__Prescript__Patie__2CF2ADDF" />
+        <EntityTypeShape EntityType="EmployeesModel.Dischargesum" Width="1.5" PointX="6.375" PointY="6.375" />
+        <AssociationConnector Association="EmployeesModel.FK__Discharge__Docto__3D2915A8" />
+        <AssociationConnector Association="EmployeesModel.FK__Discharge__InPat__3C34F16F" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

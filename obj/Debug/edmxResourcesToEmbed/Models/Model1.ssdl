@@ -13,6 +13,21 @@
     <Property Name="PatientId" Type="int" />
     <Property Name="DoctorId" Type="int" />
   </EntityType>
+  <EntityType Name="Dischargesum">
+    <Key>
+      <PropertyRef Name="DischargeId" />
+    </Key>
+    <Property Name="DischargeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Patientname" Type="varchar" MaxLength="50" />
+    <Property Name="AdmissionDate" Type="varchar" MaxLength="50" />
+    <Property Name="DischargeDate" Type="varchar" MaxLength="50" />
+    <Property Name="Doctorname" Type="varchar" MaxLength="50" />
+    <Property Name="DischargeDiagnosis" Type="varchar" MaxLength="255" />
+    <Property Name="Complications" Type="varchar" MaxLength="255" />
+    <Property Name="InPatientId" Type="int" />
+    <Property Name="DoctorId" Type="int" />
+    <Property Name="ConditionOnDischarge" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="EmployeeLogin">
     <Key>
       <PropertyRef Name="Id" />
@@ -131,6 +146,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Discharge__Docto__3D2915A8">
+    <End Role="managedoctor" Type="Self.managedoctor" Multiplicity="0..1" />
+    <End Role="Dischargesum" Type="Self.Dischargesum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="managedoctor">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="Dischargesum">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Discharge__InPat__3C34F16F">
+    <End Role="InPatient" Type="Self.InPatient" Multiplicity="0..1" />
+    <End Role="Dischargesum" Type="Self.Dischargesum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InPatient">
+        <PropertyRef Name="InPatientId" />
+      </Principal>
+      <Dependent Role="Dischargesum">
+        <PropertyRef Name="InPatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__InPatient__Nurse__160F4887">
     <End Role="managenurse" Type="Self.managenurse" Multiplicity="0..1" />
     <End Role="InPatient" Type="Self.InPatient" Multiplicity="*" />
@@ -169,6 +208,7 @@
   </Association>
   <EntityContainer Name="EmployeesModelStoreContainer">
     <EntitySet Name="BookAppointmnet" EntityType="Self.BookAppointmnet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dischargesum" EntityType="Self.Dischargesum" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeLogin" EntityType="Self.EmployeeLogin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InPatient" EntityType="Self.InPatient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="managedoctor" EntityType="Self.managedoctor" Schema="dbo" store:Type="Tables" />
@@ -183,6 +223,14 @@
     <AssociationSet Name="FK__BookAppoi__Patie__29221CFB" Association="Self.FK__BookAppoi__Patie__29221CFB">
       <End Role="patient" EntitySet="patient" />
       <End Role="BookAppointmnet" EntitySet="BookAppointmnet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Discharge__Docto__3D2915A8" Association="Self.FK__Discharge__Docto__3D2915A8">
+      <End Role="managedoctor" EntitySet="managedoctor" />
+      <End Role="Dischargesum" EntitySet="Dischargesum" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Discharge__InPat__3C34F16F" Association="Self.FK__Discharge__InPat__3C34F16F">
+      <End Role="InPatient" EntitySet="InPatient" />
+      <End Role="Dischargesum" EntitySet="Dischargesum" />
     </AssociationSet>
     <AssociationSet Name="FK__InPatient__Nurse__160F4887" Association="Self.FK__InPatient__Nurse__160F4887">
       <End Role="managenurse" EntitySet="managenurse" />

@@ -169,6 +169,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BookappointmentController.cs" />
+    <Compile Include="Controllers\DischargesumController.cs" />
     <Compile Include="Controllers\EmployeeLoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InPatientController.cs" />
@@ -186,6 +187,11 @@
     <Compile Include="Models\BookAppointmnet.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dischargesum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DischargesumModel.cs" />
+    <Compile Include="Models\DischargesumResponse.cs" />
     <Compile Include="Models\EmployeeLogin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -19,6 +19,7 @@ namespace WebApplication1.Models
         {
             this.BookAppointmnets = new HashSet<BookAppointmnet>();
             this.Prescriptions = new HashSet<Prescription>();
+            this.Dischargesums = new HashSet<Dischargesum>();
         }
     
         public int DoctorId { get; set; }
@@ -34,5 +35,7 @@ namespace WebApplication1.Models
         public virtual ICollection<BookAppointmnet> BookAppointmnets { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prescription> Prescriptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dischargesum> Dischargesums { get; set; }
     }
 }

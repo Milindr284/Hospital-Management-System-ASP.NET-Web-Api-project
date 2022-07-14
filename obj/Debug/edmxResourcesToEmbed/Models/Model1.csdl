@@ -46,6 +46,7 @@
       <End Role="InPatient" EntitySet="InPatients" />
       <End Role="Dischargesum" EntitySet="Dischargesums" />
     </AssociationSet>
+    <EntitySet Name="Feedbacks" EntityType="EmployeesModel.Feedback" />
   </EntityContainer>
   <EntityType Name="managedoctor">
     <Key>
@@ -122,7 +123,7 @@
     <Property Name="Nationality" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="AdmissionDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="DischargeDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="RoomNo" Type="Int32" />
+    <Property Name="RoomNo" Type="Int32" Nullable="true" />
     <Property Name="NurseId" Type="Int32" />
     <NavigationProperty Name="managenurse" Relationship="EmployeesModel.FK__InPatient__Nurse__160F4887" FromRole="InPatient" ToRole="managenurse" />
     <NavigationProperty Name="Dischargesums" Relationship="EmployeesModel.FK__Discharge__InPat__3C34F16F" FromRole="InPatient" ToRole="Dischargesum" />
@@ -259,4 +260,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackId" />
+    </Key>
+    <Property Name="FeedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="patientname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GiveFeedback" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

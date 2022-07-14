@@ -36,6 +36,14 @@
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="FeedbackId" />
+    </Key>
+    <Property Name="FeedbackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patientname" Type="varchar" MaxLength="50" />
+    <Property Name="GiveFeedback" Type="varchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="InPatient">
     <Key>
       <PropertyRef Name="InPatientId" />
@@ -210,6 +218,7 @@
     <EntitySet Name="BookAppointmnet" EntityType="Self.BookAppointmnet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Dischargesum" EntityType="Self.Dischargesum" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeLogin" EntityType="Self.EmployeeLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InPatient" EntityType="Self.InPatient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="managedoctor" EntityType="Self.managedoctor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="managenurse" EntityType="Self.managenurse" Schema="dbo" store:Type="Tables" />

@@ -34,5 +34,6 @@ namespace WebApplication1.Models
         public virtual DbSet<BookAppointmnet> BookAppointmnets { get; set; }
         public virtual DbSet<Prescription> Prescriptions { get; set; }
         public virtual DbSet<Dischargesum> Dischargesums { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
     }
 }

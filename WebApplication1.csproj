@@ -171,6 +171,7 @@
     <Compile Include="Controllers\BookappointmentController.cs" />
     <Compile Include="Controllers\DischargesumController.cs" />
     <Compile Include="Controllers\EmployeeLoginController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InPatientController.cs" />
     <Compile Include="Controllers\ManagedoctorController.cs" />
@@ -195,6 +196,11 @@
     <Compile Include="Models\EmployeeLogin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Feedback.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FeedbackResponse.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
     <Compile Include="Models\InPatient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

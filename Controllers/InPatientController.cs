@@ -109,7 +109,14 @@ namespace WebApplication1.Controllers
 
         }
 
-       
+        [Route("api/InPatient/Getinpatients")]
+        [HttpGet]
+        public object Getinpatients()
+        {
+            return db.InPatients.ToList();
+        }
+
+
 
         [Route("api/InPatient/InPatientByInPatientId")]
         [HttpPost]

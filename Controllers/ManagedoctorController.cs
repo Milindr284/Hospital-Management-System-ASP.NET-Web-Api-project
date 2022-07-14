@@ -103,6 +103,13 @@ namespace WebApplication1.Controllers
 
         }
 
+        [Route("api/Managedoctor/Getdoctor")]
+        [HttpGet]
+        public object Getdoctor()
+        {
+            return db.managedoctors.ToList();
+        }
+
         [Route("api/Managedoctor/ManagedoctorByDoctorId")]
         [HttpPost]
         public ManagedocResponse ManagedoctorByDoctorId(ManagedocModel managedocModel)

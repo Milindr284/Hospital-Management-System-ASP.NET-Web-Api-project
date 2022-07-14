@@ -14,6 +14,13 @@ namespace WebApplication1.Models
     
     public partial class patient
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public patient()
+        {
+            this.BookAppointmnets = new HashSet<BookAppointmnet>();
+            this.Prescriptions = new HashSet<Prescription>();
+        }
+    
         public int PatientId { get; set; }
         public string PatientName { get; set; }
         public string PhoneNo { get; set; }
@@ -26,5 +33,10 @@ namespace WebApplication1.Models
         public string State { get; set; }
         public string Nationality { get; set; }
         public string Password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookAppointmnet> BookAppointmnets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Prescription> Prescriptions { get; set; }
     }
 }

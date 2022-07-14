@@ -14,6 +14,13 @@ namespace WebApplication1.Models
     
     public partial class managedoctor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public managedoctor()
+        {
+            this.BookAppointmnets = new HashSet<BookAppointmnet>();
+            this.Prescriptions = new HashSet<Prescription>();
+        }
+    
         public int DoctorId { get; set; }
         public string DoctorName { get; set; }
         public Nullable<int> PhoneNo { get; set; }
@@ -22,5 +29,10 @@ namespace WebApplication1.Models
         public string Qualification { get; set; }
         public int ConsultationFee { get; set; }
         public string PhoneNum { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BookAppointmnet> BookAppointmnets { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Prescription> Prescriptions { get; set; }
     }
 }

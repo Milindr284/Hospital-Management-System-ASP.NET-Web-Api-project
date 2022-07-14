@@ -1,5 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="EmployeesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookAppointmnet">
+    <Key>
+      <PropertyRef Name="AppointmentId" />
+    </Key>
+    <Property Name="AppointmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Patientname" Type="varchar" MaxLength="50" />
+    <Property Name="Specialization" Type="varchar" MaxLength="50" />
+    <Property Name="ConsultingDoctor" Type="varchar" MaxLength="50" />
+    <Property Name="AppointmentDate" Type="varchar" MaxLength="50" />
+    <Property Name="AppointmentTime" Type="varchar" MaxLength="255" />
+    <Property Name="PatientId" Type="int" />
+    <Property Name="DoctorId" Type="int" />
+  </EntityType>
   <EntityType Name="EmployeeLogin">
     <Key>
       <PropertyRef Name="Id" />
@@ -7,6 +20,25 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InPatient">
+    <Key>
+      <PropertyRef Name="InPatientId" />
+    </Key>
+    <Property Name="InPatientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="PhoneNum" Type="varchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="varchar" MaxLength="10" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Gender" Type="varchar" MaxLength="25" />
+    <Property Name="InPatientAddress" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="25" />
+    <Property Name="State" Type="varchar" MaxLength="25" />
+    <Property Name="Nationality" Type="varchar" MaxLength="25" />
+    <Property Name="AdmissionDate" Type="varchar" MaxLength="10" />
+    <Property Name="DischargeDate" Type="varchar" MaxLength="10" />
+    <Property Name="RoomNo" Type="int" />
+    <Property Name="NurseId" Type="int" />
   </EntityType>
   <EntityType Name="managedoctor">
     <Key>
@@ -61,11 +93,108 @@
     <Property Name="Nationality" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="PrescriptionId" />
+    </Key>
+    <Property Name="PrescriptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrescriptionDate" Type="varchar" MaxLength="25" />
+    <Property Name="Drugnamedosage" Type="varchar" MaxLength="255" />
+    <Property Name="DrugDuration" Type="varchar" MaxLength="100" />
+    <Property Name="patientname" Type="varchar" MaxLength="50" />
+    <Property Name="doctorname" Type="varchar" MaxLength="50" />
+    <Property Name="PatientId" Type="int" />
+    <Property Name="DoctorId" Type="int" />
+    <Property Name="Column_Age" Type="int" />
+  </EntityType>
+  <Association Name="FK__BookAppoi__Docto__2A164134">
+    <End Role="managedoctor" Type="Self.managedoctor" Multiplicity="0..1" />
+    <End Role="BookAppointmnet" Type="Self.BookAppointmnet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="managedoctor">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="BookAppointmnet">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookAppoi__Patie__29221CFB">
+    <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+    <End Role="BookAppointmnet" Type="Self.BookAppointmnet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="BookAppointmnet">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__InPatient__Nurse__160F4887">
+    <End Role="managenurse" Type="Self.managenurse" Multiplicity="0..1" />
+    <End Role="InPatient" Type="Self.InPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="managenurse">
+        <PropertyRef Name="NurseId" />
+      </Principal>
+      <Dependent Role="InPatient">
+        <PropertyRef Name="NurseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__Docto__2DE6D218">
+    <End Role="managedoctor" Type="Self.managedoctor" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="managedoctor">
+        <PropertyRef Name="DoctorId" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__Patie__2CF2ADDF">
+    <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="PatientId" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="EmployeesModelStoreContainer">
+    <EntitySet Name="BookAppointmnet" EntityType="Self.BookAppointmnet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeLogin" EntityType="Self.EmployeeLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InPatient" EntityType="Self.InPatient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="managedoctor" EntityType="Self.managedoctor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="managenurse" EntityType="Self.managenurse" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="managetip" EntityType="Self.managetip" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BookAppoi__Docto__2A164134" Association="Self.FK__BookAppoi__Docto__2A164134">
+      <End Role="managedoctor" EntitySet="managedoctor" />
+      <End Role="BookAppointmnet" EntitySet="BookAppointmnet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookAppoi__Patie__29221CFB" Association="Self.FK__BookAppoi__Patie__29221CFB">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="BookAppointmnet" EntitySet="BookAppointmnet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__InPatient__Nurse__160F4887" Association="Self.FK__InPatient__Nurse__160F4887">
+      <End Role="managenurse" EntitySet="managenurse" />
+      <End Role="InPatient" EntitySet="InPatient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prescript__Docto__2DE6D218" Association="Self.FK__Prescript__Docto__2DE6D218">
+      <End Role="managedoctor" EntitySet="managedoctor" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prescript__Patie__2CF2ADDF" Association="Self.FK__Prescript__Patie__2CF2ADDF">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -30,5 +30,8 @@ namespace WebApplication1.Models
         public virtual DbSet<managenurse> managenurses { get; set; }
         public virtual DbSet<managetip> managetips { get; set; }
         public virtual DbSet<patient> patients { get; set; }
+        public virtual DbSet<InPatient> InPatients { get; set; }
+        public virtual DbSet<BookAppointmnet> BookAppointmnets { get; set; }
+        public virtual DbSet<Prescription> Prescriptions { get; set; }
     }
 }

@@ -10,7 +10,15 @@
         <EntityTypeShape EntityType="EmployeesModel.managenurse" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="EmployeesModel.managetip" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="EmployeesModel.patient" Width="1.5" PointX="5.375" PointY="0.75" />
-      </Diagram>
+        <EntityTypeShape EntityType="EmployeesModel.InPatient" Width="1.5" PointX="3" PointY="8" />
+        <AssociationConnector Association="EmployeesModel.FK__InPatient__Nurse__160F4887" />
+        <EntityTypeShape EntityType="EmployeesModel.BookAppointmnet" Width="1.5" PointX="7.625" PointY="1" />
+        <AssociationConnector Association="EmployeesModel.FK__BookAppoi__Docto__2A164134" />
+        <AssociationConnector Association="EmployeesModel.FK__BookAppoi__Patie__29221CFB" />
+        <EntityTypeShape EntityType="EmployeesModel.Prescription" Width="1.5" PointX="10.625" PointY="1.125" />
+        <AssociationConnector Association="EmployeesModel.FK__Prescript__Docto__2DE6D218" />
+        <AssociationConnector Association="EmployeesModel.FK__Prescript__Patie__2CF2ADDF" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

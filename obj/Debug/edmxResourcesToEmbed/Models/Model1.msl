@@ -67,5 +67,54 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="InPatients">
+      <EntityTypeMapping TypeName="EmployeesModel.InPatient">
+        <MappingFragment StoreEntitySet="InPatient">
+          <ScalarProperty Name="NurseId" ColumnName="NurseId" />
+          <ScalarProperty Name="RoomNo" ColumnName="RoomNo" />
+          <ScalarProperty Name="DischargeDate" ColumnName="DischargeDate" />
+          <ScalarProperty Name="AdmissionDate" ColumnName="AdmissionDate" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="InPatientAddress" ColumnName="InPatientAddress" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="InPatientId" ColumnName="InPatientId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookAppointmnets">
+      <EntityTypeMapping TypeName="EmployeesModel.BookAppointmnet">
+        <MappingFragment StoreEntitySet="BookAppointmnet">
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+          <ScalarProperty Name="ConsultingDoctor" ColumnName="ConsultingDoctor" />
+          <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+          <ScalarProperty Name="Patientname" ColumnName="Patientname" />
+          <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prescriptions">
+      <EntityTypeMapping TypeName="EmployeesModel.Prescription">
+        <MappingFragment StoreEntitySet="Prescription">
+          <ScalarProperty Name="Column_Age" ColumnName="Column_Age" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="doctorname" ColumnName="doctorname" />
+          <ScalarProperty Name="patientname" ColumnName="patientname" />
+          <ScalarProperty Name="DrugDuration" ColumnName="DrugDuration" />
+          <ScalarProperty Name="Drugnamedosage" ColumnName="Drugnamedosage" />
+          <ScalarProperty Name="PrescriptionDate" ColumnName="PrescriptionDate" />
+          <ScalarProperty Name="PrescriptionId" ColumnName="PrescriptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
